@@ -7,7 +7,8 @@
   "author": "JW Player",
   "main": "index.js",
   "engines": {
-    "node": ">=18.13.0"
+    "node": ">=22.12.0",
+    "npm": ">=10.0.0"
   },
   "workspaces": [
     "configs/*",
@@ -30,7 +31,7 @@
     "lint:ts": "tsc --pretty --noEmit -p ./scripts && yarn workspaces run lint:ts",
     "load-content-types": "ts-node ./scripts/content-types/load-content-types",
     "pre-commit": "yarn depcheck && lint-staged",
-    "prepare": "husky install",
+    "prepare": "husky install || exit 0",
     "test": "TZ=UTC LC_ALL=en_US.UTF-8 vitest run",
     "test-update": "TZ=UTC LC_ALL=en_US.UTF-8 vitest run -u",
     "test-watch": "TZ=UTC LC_ALL=en_US.UTF-8 vitest",
@@ -46,7 +47,7 @@
     "csv-parse": "^5.6.0",
     "eslint": "^8.57.1",
     "eslint-config-jwp": "*",
-    "husky": "^6.0.0",
+    "husky": "^8.0.0",
     "i18next-parser-workspaces": "^0.2.1",
     "knip": "^5.61.2",
     "lint-staged": "^15.4.3",
