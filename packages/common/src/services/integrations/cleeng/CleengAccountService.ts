@@ -106,24 +106,16 @@ export default class CleengAccountService extends AccountService {
   };
 
   initialize = async (config: Config, _url: string, logoutCallback: () => Promise<void>) => {
-    /*const cleengConfig = config?.integrations?.cleeng;
+  const cleengConfig = config?.integrations?.cleeng;
 
-    if (!cleengConfig?.id) {
+  if (!cleengConfig?.id) {
       throw new Error('Failed to initialize Cleeng integration. The publisherId is missing.');
-    }*/
-// Try to load from config file; if missing, fall back to env.ts values
-const cleengConfig = config?.integrations?.cleeng || {
-  id: env.CLEENG_PUBLISHER_ID,
-  useSandbox: env.CLEENG_USE_SANDBOX,
-  monthlyOffer: env.CLEENG_MONTHLY_OFFER,
-  yearlyOffer: env.CLEENG_YEARLY_OFFER,
-};
+    }
 
-if (!cleengConfig?.id) {
-  throw new Error('Failed to initialize Cleeng integration. The publisherId is missing (config or env).');
-}
+
+
     // set accessModel and publisherId
-    this.publisherId = cleengConfig.id;
+    this.publisherId =472849291 //cleengConfig.id;
     this.accessModel = cleengConfig.monthlyOffer || cleengConfig.yearlyOffer ? ACCESS_MODEL.SVOD : ACCESS_MODEL.AUTHVOD;
     this.svodOfferIds = [cleengConfig?.monthlyOffer, cleengConfig?.yearlyOffer].filter(Boolean).map(String);
 
