@@ -174,7 +174,9 @@
     display: none;
   }
 }
-
+.activeButton {
+  font-weight: 700 !important; /* makes active link bold */
+}
 //
 // mediaQueries
 // --------------------------------
