@@ -59,7 +59,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, children }) => {
             <button
               key={index}
               onClick={() => handleButtonClick(item.to, item.external)}
-              className="_button_15pe7_1 _default_15pe7_39 _text_15pe7_62"
+              className="_menuButton_5vhgl_1"
             >
               {item.label}
             </button>
