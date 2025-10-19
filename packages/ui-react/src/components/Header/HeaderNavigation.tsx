@@ -55,7 +55,8 @@ const HeaderNavigation = ({ className, navItems }: { className?: string; navItem
           <li key={index}>
             <button
               onClick={() => handleButtonClick(item.to, item.external)}
-              className={classNames(styles.navButton, styles.buttonLink)}
+              //className={classNames(styles.navButton, styles.buttonLink)}
+              className="_button_15pe7_1 _default_15pe7_39 _text_15pe7_62"
             >
               {item.label}
             </button>
