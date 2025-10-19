@@ -14,9 +14,10 @@ const scrollOffset = 100;
 
 // 👇 Add up to 3 hardcoded links here
 const customLinks: NavItem[] = [
-  { label: 'Support', to: 'https://example.com/support', external: true },
-  { label: 'Donate', to: 'https://example.com/donate', external: true },
-  { label: 'About', to: 'https://example.com/about', external: true },
+
+   { label: 'About', to: 'https://pages.ccity.tv/about', external: true },
+   { label: 'Sightlines', to: 'https://pages.ccity.tv/sightlinesguide', external: true },
+   { label: 'Contact', to: 'https://pages.ccity.tv/contact', external: true },
 ];
 const HeaderNavigation = ({ className, navItems }: { className?: string; navItems: NavItem[] }) => {
   const navRef = useRef<HTMLElement>(null);
