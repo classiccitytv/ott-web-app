@@ -5,14 +5,9 @@ export enum PersonalShelf {
 
 export const PersonalShelves = [PersonalShelf.Favorites, PersonalShelf.ContinueWatching];
 
-/*
-old commenting out JWP Integration
+
 export const INTEGRATION = {
   JWP: 'JWP',
-  CLEENG: 'CLEENG',
-} as const;
-*/
-export const INTEGRATION = {
   CLEENG: 'CLEENG',
 } as const;
 
