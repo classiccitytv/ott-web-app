@@ -87,9 +87,9 @@ container.bind(CheckoutService).to(CleengCheckoutService).whenNamed(INTEGRATION.
 container.bind(SubscriptionService).to(CleengSubscriptionService).whenNamed(INTEGRATION.CLEENG);
 
 // JWP integration
-container.bind(DETERMINE_INTEGRATION_TYPE).toConstantValue(isJwpIntegrationType);
-container.bind(JWPAPIService).toSelf();
-container.bind(JWPEntitlementService).toSelf();
-container.bind(AccountService).to(JWPAccountService).whenNamed(INTEGRATION.JWP);
-container.bind(CheckoutService).to(JWPCheckoutService).whenNamed(INTEGRATION.JWP);
-container.bind(SubscriptionService).to(JWPSubscriptionService).whenNamed(INTEGRATION.JWP);
+//container.bind(DETERMINE_INTEGRATION_TYPE).toConstantValue(isJwpIntegrationType);
+//container.bind(JWPAPIService).toSelf();
+//container.bind(JWPEntitlementService).toSelf();
+//container.bind(AccountService).to(JWPAccountService).whenNamed(INTEGRATION.JWP);
+//container.bind(CheckoutService).to(JWPCheckoutService).whenNamed(INTEGRATION.JWP);
+//container.bind(SubscriptionService).to(JWPSubscriptionService).whenNamed(INTEGRATION.JWP);
