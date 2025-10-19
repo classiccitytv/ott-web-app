@@ -51,22 +51,29 @@ const HeaderNavigation = ({ className, navItems }: { className?: string; navItem
   return (
     <nav className={classNames(styles.nav, className)} ref={navRef}>
       <ul onFocus={focusHandler}>
-       {extendedNavItems.map((item, index) => (
-          <li key={index}>
-            <button
-              onClick={() => handleButtonClick(item.to, item.external)}
-              //className={classNames(styles.navButton, styles.buttonLink)}
-               className={classNames(
+       {extendedNavItems.map((item, index) => {
+          // ✅ Define isActive *inside* the map before it’s used
+          const isActive =
+            !item.external &&
+            (location.pathname === item.to ||
+              (item.to !== '/' && location.pathname.startsWith(item.to)));
+
+          return (
+            <li key={index}>
+              <button
+                onClick={() => handleButtonClick(item.to, item.external)}
+                className={classNames(
                   '_button_15pe7_1',
                   '_default_15pe7_39',
                   '_text_15pe7_62',
-                  { [styles.activeButton]: isActive } // 👈 Bold active link
+                  { [styles.activeButton]: isActive } // uses boolean safely
                 )}
-            >
-              {item.label}
-            </button>
-          </li>
-        ))}
+              >
+                {item.label}
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );
