@@ -79,17 +79,19 @@ container.bind(EpgService).to(ViewNexaEpgService).whenNamed(EPG_TYPE.viewNexa);
 container.bind(INTEGRATION_TYPE).toDynamicValue(getIntegrationType);
 container.bind(API_ACCESS_BRIDGE_URL).toDynamicValue(getApiAccessBridgeUrl);
 
+
+
+// JWP integration
+container.bind(DETERMINE_INTEGRATION_TYPE).toConstantValue(isJwpIntegrationType);
+container.bind(JWPAPIService).toSelf();
+container.bind(JWPEntitlementService).toSelf();
+container.bind(AccountService).to(JWPAccountService).whenNamed(INTEGRATION.JWP);
+container.bind(CheckoutService).to(JWPCheckoutService).whenNamed(INTEGRATION.JWP);
+container.bind(SubscriptionService).to(JWPSubscriptionService).whenNamed(INTEGRATION.JWP);
+
 // Cleeng integration
 container.bind(DETERMINE_INTEGRATION_TYPE).toConstantValue(isCleengIntegrationType);
 container.bind(CleengService).toSelf();
 container.bind(AccountService).to(CleengAccountService).whenNamed(INTEGRATION.CLEENG);
 container.bind(CheckoutService).to(CleengCheckoutService).whenNamed(INTEGRATION.CLEENG);
 container.bind(SubscriptionService).to(CleengSubscriptionService).whenNamed(INTEGRATION.CLEENG);
-
-// JWP integration
-//container.bind(DETERMINE_INTEGRATION_TYPE).toConstantValue(isJwpIntegrationType);
-//container.bind(JWPAPIService).toSelf();
-//container.bind(JWPEntitlementService).toSelf();
-//container.bind(AccountService).to(JWPAccountService).whenNamed(INTEGRATION.JWP);
-//container.bind(CheckoutService).to(JWPCheckoutService).whenNamed(INTEGRATION.JWP);
-//container.bind(SubscriptionService).to(JWPSubscriptionService).whenNamed(INTEGRATION.JWP);
