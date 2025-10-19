@@ -27,6 +27,21 @@ const SlideLeft = ({ children, ...props }: AnimationProps) => (
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, children }) => {
   const { t } = useTranslation('menu');
 
+   // 👇 Add up to 3 configurable hardcoded links/buttons
+  const customLinks = [
+    { label: 'Support', to: 'https://example.com/support', external: true },
+    { label: 'Donate', to: 'https://example.com/donate', external: true },
+    { label: 'About', to: '/about', external: false },
+  ];
+
+  const handleButtonClick = (url: string, external?: boolean) => {
+    if (external) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } else {
+      window.location.href = url;
+    }
+  };
+
   return (
     <Modal open={isOpen} onClose={onClose} AnimationComponent={SlideLeft}>
       <div className={styles.sidebar} id="sidebar">
@@ -38,6 +53,18 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, children }) => {
         <nav className={styles.group} onClick={onClose}>
           {children}
         </nav>
+         {/* 👇 your custom buttons always visible in fly-out */}
+        <div className={styles.customLinks}>
+          {customLinks.map((item, index) => (
+            <button
+              key={index}
+              onClick={() => handleButtonClick(item.to, item.external)}
+              className="_button_15pe7_1 _default_15pe7_39 _text_15pe7_62"
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
       </div>
     </Modal>
   );
