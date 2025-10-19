@@ -48,7 +48,7 @@ const HeaderNavigation = ({ className, navItems }: { className?: string; navItem
                 href={item.to}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.navButton}
+                 activeClassname={styles.navButton}
               >
                 {item.label}
               </a>
