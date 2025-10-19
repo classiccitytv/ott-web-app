@@ -51,7 +51,7 @@ import type { Response } from './types/api';
 export default class CleengAccountService extends AccountService {
   protected readonly cleengService;
   protected readonly getCustomerIP;
-  protected publisherId = '472849291';
+  protected publisherId = '';
 
   protected externalData: Record<string, unknown> = {};
 
