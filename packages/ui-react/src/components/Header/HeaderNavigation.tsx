@@ -12,6 +12,12 @@ type NavItem = {
 
 const scrollOffset = 100;
 
+// 👇 Add up to 3 hardcoded links here
+const customLinks: NavItem[] = [
+  { label: 'Support', to: 'https://example.com/support', external: true },
+  { label: 'Donate', to: 'https://example.com/donate', external: true },
+  { label: 'About', to: 'https://example.com/about', external: true },
+];
 const HeaderNavigation = ({ className, navItems }: { className?: string; navItems: NavItem[] }) => {
   const navRef = useRef<HTMLElement>(null);
 
@@ -29,13 +35,31 @@ const HeaderNavigation = ({ className, navItems }: { className?: string; navItem
 
     navRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
   };
-
+  
+  // 👇 Combine passed navItems with hardcoded customLinks
+  const extendedNavItems = [...navItems, ...customLinks];
   return (
     <nav className={classNames(styles.nav, className)} ref={navRef}>
       <ul onFocus={focusHandler}>
-        {navItems.map((item, index) => (
+       {extendedNavItems.map((item, index) => (
           <li key={index}>
-            <Button activeClassname={styles.navButton} label={item.label} to={item.to} variant="text" />
+            {item.external ? (
+              <a
+                href={item.to}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.navButton}
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Button
+                activeClassname={styles.navButton}
+                label={item.label}
+                to={item.to}
+                variant="text"
+              />
+            )}
           </li>
         ))}
       </ul>
