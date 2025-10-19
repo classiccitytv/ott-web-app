@@ -115,7 +115,7 @@ export default class CleengAccountService extends AccountService {
 
 
     // set accessModel and publisherId
-    this.publisherId =472849291 //cleengConfig.id;
+    this.publisherId ="472849291" //cleengConfig.id;
     this.accessModel = cleengConfig.monthlyOffer || cleengConfig.yearlyOffer ? ACCESS_MODEL.SVOD : ACCESS_MODEL.AUTHVOD;
     this.svodOfferIds = [cleengConfig?.monthlyOffer, cleengConfig?.yearlyOffer].filter(Boolean).map(String);
 
