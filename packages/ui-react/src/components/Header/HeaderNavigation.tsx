@@ -36,30 +36,29 @@ const HeaderNavigation = ({ className, navItems }: { className?: string; navItem
     navRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
   };
   
-  // 👇 Combine passed navItems with hardcoded customLinks
+// Merge default nav items with your custom hardcoded buttons
   const extendedNavItems = [...navItems, ...customLinks];
+
+  // Handler for button clicks
+  const handleButtonClick = (url: string, external?: boolean) => {
+    if (external) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } else {
+      window.location.href = url;
+    }
+  };
+
   return (
     <nav className={classNames(styles.nav, className)} ref={navRef}>
       <ul onFocus={focusHandler}>
        {extendedNavItems.map((item, index) => (
           <li key={index}>
-            {item.external ? (
-              <a
-                href={item.to}
-                target="_blank"
-                rel="noopener noreferrer"
-                 activeClassname={styles.navButton}
-              >
-                {item.label}
-              </a>
-            ) : (
-              <Button
-                activeClassname={styles.navButton}
-                label={item.label}
-                to={item.to}
-                variant="text"
-              />
-            )}
+            <button
+              onClick={() => handleButtonClick(item.to, item.external)}
+              className={classNames(styles.navButton, styles.buttonLink)}
+            >
+              {item.label}
+            </button>
           </li>
         ))}
       </ul>
