@@ -29,9 +29,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, children }) => {
 
    // 👇 Add up to 3 configurable hardcoded links/buttons
   const customLinks = [
-    { label: 'Support', to: 'https://example.com/support', external: true },
-    { label: 'Donate', to: 'https://example.com/donate', external: true },
-    { label: 'About', to: '/about', external: false },
+      { label: 'About', to: 'https://pages.ccity.tv/about', external: true },
+      { label: 'Sightlines', to: 'https://pages.ccity.tv/sightlinesguide', external: true },
+     { label: 'Contact', to: 'https://pages.ccity.tv/contact', external: true },
   ];
 
   const handleButtonClick = (url: string, external?: boolean) => {
