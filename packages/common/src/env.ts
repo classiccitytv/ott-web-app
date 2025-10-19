@@ -59,6 +59,12 @@ export const configureEnv = (options: Partial<Env>) => {
   env.APP_GTM_LOAD_ON_ACCEPT = options.APP_GTM_LOAD_ON_ACCEPT || env.APP_GTM_LOAD_ON_ACCEPT;
 
   env.APP_CHROMECAST_APPLICATION_ID = options.APP_CHROMECAST_APPLICATION_ID || env.APP_CHROMECAST_APPLICATION_ID;
+
+  // ✅ Cleeng integration defaults
+   env.CLEENG_PUBLISHER_ID: process.env.REACT_APP_CLEENG_PUBLISHER_ID || '472849291',
+   env.CLEENG_USE_SANDBOX: process.env.REACT_APP_CLEENG_USE_SANDBOX === 'false',
+   env.CLEENG_MONTHLY_OFFER: process.env.REACT_APP_CLEENG_MONTHLY_OFFER || '',
+   env.CLEENG_YEARLY_OFFER: process.env.REACT_APP_CLEENG_YEARLY_OFFER || '',
 };
 
 export default env;
