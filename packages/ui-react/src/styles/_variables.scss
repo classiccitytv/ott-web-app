@@ -51,9 +51,11 @@ $desktop-large-min-width: 1200px !default;
 // Header
 // --------------------------------
 
-$header-height: 72px !default;
+//$header-height: 72px !default;
+$header-height: 120px !default;
 $logo-max-width: 100% !default;
-$logo-max-height: 36px !default;
+//$logo-max-height: 36px !default;
+$logo-max-height: 120px !default;
 $search-height: 36px !default;
 $search-bar-width-desktop: 200px !default;
 
